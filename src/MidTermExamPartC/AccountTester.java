@@ -21,19 +21,23 @@ public class AccountTester {
 		
 		input = new Scanner(System.in);
 		
-		Account newAccount = createAccount(input);
-		
+		createAccount(input);
 	}
 	
-	public static Account createAccount(Scanner input) {
+	public static void createAccount(Scanner input) {
 		
 		System.out.println("Welcome to account creation function!");
-		System.out.print("Please enter your name:");
 		
 		String userName = InqUserName(input);
+		System.out.println();
 		AccountType accountType = InqAccountType(input);
+		System.out.println();
 		
-		return new Account(userName, accountType);
+		Account newAccount = new Account(userName, accountType);
+		
+		System.out.println();
+		System.out.println("Your account:");
+		System.out.println(newAccount);
 	}
 	
 	private static String InqUserName (Scanner input) {
@@ -43,7 +47,10 @@ public class AccountTester {
 	}
 	
 	private static AccountType InqAccountType (Scanner input) {
+	
+		AccountType accountType = null;
 		
+		// message to ask account type
 		System.out.println("Please enter the account type "
 				+ "according to the following list: "
 				+ "(Please enter completely same as shown)");
@@ -52,7 +59,18 @@ public class AccountTester {
 		}
 		System.out.print("Your account type:");
 		
-		return AccountType.valueOf(input.next());
+	
+		try {
+			accountType = AccountType.valueOf(input.next());
+		} catch(IllegalArgumentException e) {
+			System.out.println(
+					"The account type input not in the list, "
+					+ "please enter again.");
+			input.nextLine();
+			InqAccountType(input);
+		}
+		
+		return accountType;
 	}
 	
 }

@@ -77,7 +77,13 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [userName=" + userName + ", accountNum=" + accountNum + ", accountType=" + accountType + "]";
+		
+		String pattern = "%-12s  %-15s  %-20s";
+		return String.format(pattern, 
+				"Account No.", "User name", "Account Type") 
+				+ "\n=================================================\n"
+				+ String.format(pattern, 
+						accountNum, userName, accountType.name());
 	}
 	
 	
