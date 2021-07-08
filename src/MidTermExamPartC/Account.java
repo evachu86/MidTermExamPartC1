@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package MidtermExamPartC;
+package MidTermExamPartC;
 
 /**
  *
@@ -13,9 +13,11 @@ public class Account {
     
  
     private String userName;//the userID
-    private String AccountNum; // account number
-    private String AccountType;// the user's account type
+    private String accountNum; // account number
+//    private String accountType;// the user's account type
+    private AccountType accountType;// the user's account type
     public final static String [] account_types={"Checking","CC","StudentLoan"};
+    public enum AccountType {Checking, Cc, StudentLoan, YiwenStudentAccount};
 
     /**
      * A constructor that takes in the userName and the Account type
@@ -23,10 +25,10 @@ public class Account {
      * @param chosenName the ID to assign to this user
      * @param chosenType the users account type
      */
-    public Account(String chosenName,String chosenType) {
+    public Account(String chosenName,AccountType chosenType) {
         userName = chosenName;
-        AccountType = chosenType;
-        AccountNum= "A-"+(int)(1000+Math.random()*9000);
+        accountType = chosenType;
+        accountNum= "A-"+(int)(1000+Math.random()*9000);
     }
 
     /**
@@ -39,7 +41,7 @@ public class Account {
     }
     
      public String getAccountNum() {
-        return AccountNum;
+        return accountNum;
     }
 
 
@@ -55,16 +57,23 @@ public class Account {
      *
      * @return the type
      */
-    public String getAccountType() {
-        return this.AccountType;
-    }
+	public AccountType getAccountType() {
+		return accountType;
+	}
+//    public String getAccountType() {
+//        return this.AccountType;
+//    }
+	
 
     /**
      * @param genre the genre to set
      */
-    public void setAccountType(String type) {
-        this.AccountType = type;
-    }
+	public void setAccountType(AccountType accountType) {
+		this.accountType = accountType;
+	}
+//    public void setAccountType(String type) {
+//        this.AccountType = type;
+//    }
 
 //end class
    

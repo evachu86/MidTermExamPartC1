@@ -3,16 +3,43 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor. 
  */
-package MidtermExamPartC;
+package MidTermExamPartC;
 
 import java.util.Scanner;
+
+import MidTermExamPartC.Account.AcountType;
 
 /**
  *
  * @author 
  */
 public class AccountTester {
-    
+    public static Scanner input;
     
     /* Add your code here */
+	
+	public static void main(String[] args) {
+		
+		
+		
+	}
+	
+	public static void createAccount(Scanner input) {
+		
+		System.out.println("Welcome to account creation function!");
+		System.out.print("Please enter your name:");
+		
+		String userName = input.nextLine();
+		
+		System.out.println("Please enter the account type "
+				+ "according to the following list: "
+				+ "(Please enter completely same as shown)");
+		for(AccountType type: AccountType.values()) {
+			System.out.println();
+		}
+		System.out.print("Your account type:");
+		AccountType accountType = AccountType.valueOf(input.next());
+ 		
+	}
+	
 }
