@@ -6,8 +6,7 @@
 package MidTermExamPartC;
 
 import java.util.Scanner;
-
-import MidTermExamPartC.Account.AcountType;
+import MidTermExamPartC.Account.AccountType;
 
 /**
  *
@@ -20,26 +19,40 @@ public class AccountTester {
 	
 	public static void main(String[] args) {
 		
+		input = new Scanner(System.in);
 		
+		Account newAccount = createAccount(input);
 		
 	}
 	
-	public static void createAccount(Scanner input) {
+	public static Account createAccount(Scanner input) {
 		
 		System.out.println("Welcome to account creation function!");
 		System.out.print("Please enter your name:");
 		
-		String userName = input.nextLine();
+		String userName = InqUserName(input);
+		AccountType accountType = InqAccountType(input);
+		
+		return new Account(userName, accountType);
+	}
+	
+	private static String InqUserName (Scanner input) {
+		System.out.print("Please enter your name:");
+		
+		return input.nextLine();
+	}
+	
+	private static AccountType InqAccountType (Scanner input) {
 		
 		System.out.println("Please enter the account type "
 				+ "according to the following list: "
 				+ "(Please enter completely same as shown)");
 		for(AccountType type: AccountType.values()) {
-			System.out.println();
+			System.out.println(type);
 		}
 		System.out.print("Your account type:");
-		AccountType accountType = AccountType.valueOf(input.next());
- 		
+		
+		return AccountType.valueOf(input.next());
 	}
 	
 }

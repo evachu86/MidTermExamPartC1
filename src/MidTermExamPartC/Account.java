@@ -16,7 +16,7 @@ public class Account {
     private String accountNum; // account number
 //    private String accountType;// the user's account type
     private AccountType accountType;// the user's account type
-    public final static String [] account_types={"Checking","CC","StudentLoan"};
+//    public final static String [] account_types={"Checking","CC","StudentLoan"};
     public enum AccountType {Checking, Cc, StudentLoan, YiwenStudentAccount};
 
     /**
@@ -74,6 +74,13 @@ public class Account {
 //    public void setAccountType(String type) {
 //        this.AccountType = type;
 //    }
+
+	@Override
+	public String toString() {
+		return "Account [userName=" + userName + ", accountNum=" + accountNum + ", accountType=" + accountType + "]";
+	}
+	
+	
 
 //end class
    
